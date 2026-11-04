@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<title>부다페스트 여행</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="부다페스트">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#FBF6EF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=Fraunces:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --linen:#FBF6EF; --paper:#FFFDF9; --ink:#3F302B; --soft:#8B7A70; --line:#EFE3D5;
+  --hero:#F3DCD2; --hero-deep:#E8C6B8; --on-hero:#5B3A31; --dot:rgba(255,255,255,.75);
+  --paprika:#C8423B; --blush:#FBE8E2; --pine:#4F7F5E; --gold:#D9A13B; --plum:#8E5B78; --frost:#F4EDE4;
+  color-scheme:only light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);-webkit-text-size-adjust:100%}
+body{
+  margin:0;color:var(--ink);background-color:var(--linen);
+  background-image:radial-gradient(circle at 20% 30%, rgba(150,110,90,.05) 0 1px, transparent 1.5px),
+                   radial-gradient(circle at 70% 80%, rgba(150,110,90,.05) 0 1px, transparent 1.5px);
+  background-size:14px 14px, 23px 23px;
+  font-family:"Gowun Dodum",-apple-system,"Apple SD Gothic Neo",sans-serif;
+  font-size:16px;line-height:1.65;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--linen)}
+a{color:inherit}
+.hu{font-family:"Fraunces",Georgia,serif;font-weight:600}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 40px}
+
+/* ===== hero: 헝가리 자수 점무늬 + 레이스 테두리 ===== */
+.hero{
+  margin:0 -16px;padding:34px 22px 62px;color:var(--on-hero);position:relative;overflow:hidden;
+  background-color:var(--hero);
+  background-image:
+    radial-gradient(circle, var(--dot) 0 2px, transparent 2.5px),
+    radial-gradient(circle, rgba(200,66,59,.16) 0 3px, transparent 3.5px),
+    radial-gradient(circle, rgba(79,127,94,.14) 0 2px, transparent 2.5px);
+  background-size:28px 28px, 56px 56px, 56px 56px;
+  background-position:0 0, 14px 14px, 42px 42px;
+}
+.lace{position:absolute;left:0;right:0;bottom:0;height:18px;
+  background:
+    radial-gradient(circle at 12px 5px, var(--linen) 0 2.5px, transparent 3px) 0 0/24px 18px repeat-x,
+    radial-gradient(circle at 12px 18px, var(--linen) 0 10px, transparent 10.5px) 0 0/24px 18px repeat-x}
+.snow{position:absolute;inset:0;pointer-events:none}
+.snow i{position:absolute;width:6px;height:6px;border-radius:50%;background:#fff;opacity:.95;box-shadow:0 0 0 1px rgba(150,110,90,.15)}
+.hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative}
+.kicker{display:inline-block;background:var(--paprika);color:#fff;border-radius:999px;padding:3px 12px;font-size:14px}
+.kicker .hu{font-style:italic;font-weight:600}
+h1{font-family:"Jua",sans-serif;font-weight:400;font-size:38px;line-height:1.2;margin:14px 0 6px;position:relative}
+.hero p{margin:0;opacity:.9;position:relative}
+.folk{width:78px;height:78px;flex:0 0 auto}
+
+/* ===== ticket ===== */
+.ticket{
+  position:relative;margin:-22px 6px 0;background:var(--paper);border-radius:16px;
+  border:2px solid var(--line);padding:16px 18px 14px;box-shadow:0 6px 0 var(--line);
+}
+.ticket::before,.ticket::after{content:"";position:absolute;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;background:var(--linen);border:2px solid var(--line)}
+.ticket::before{left:-11px;border-left-color:transparent;border-bottom-color:transparent;transform:rotate(45deg)}
+.ticket::after{right:-11px;border-right-color:transparent;border-top-color:transparent;transform:rotate(45deg)}
+.route{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.stn{text-align:center}
+.stn b{display:block;font-family:"Jua",sans-serif;font-weight:400;font-size:26px;line-height:1.1}
+.stn b.hu{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:24px}
+.stn small{color:var(--soft);font-size:13px}
+.arrow{flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--soft) 0 6px,transparent 6px 11px);position:relative}
+.arrow::after{content:"✈";position:absolute;left:50%;top:-12px;transform:translateX(-50%);background:var(--paper);padding:0 6px;color:var(--on-hero)}
+.tmeta{display:flex;justify-content:space-between;margin-top:12px;padding-top:10px;border-top:2px dotted var(--line);font-size:14px}
+.tmeta span{color:var(--soft);display:block;font-size:12px}
+.tmeta b{font-weight:400;font-family:"Jua",sans-serif;font-size:17px}
+.tmeta b.tbd{color:var(--soft)}
+
+/* ===== sticky tabs ===== */
+nav.days{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--linen);margin:20px -16px 0;padding:10px 0}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{flex:0 0 auto;text-decoration:none;font-size:14px;padding:7px 14px;border-radius:999px;background:var(--paper);border:2px solid var(--line);font-family:"Jua",sans-serif}
+.tabs a.on{background:var(--paprika);border-color:var(--paprika);color:#fff}
+
+section{margin-top:30px}
+.sec-head{display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.sec-head h2{font-family:"Jua",sans-serif;font-weight:400;font-size:24px;margin:0;line-height:1.2}
+.sec-head .ico{font-size:22px}
+.card{background:var(--paper);border:2px solid var(--line);border-radius:20px;padding:16px}
+.tbd{color:var(--soft)}
+.tbd-tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;border:1px dashed var(--soft);color:var(--soft);vertical-align:2px;margin-left:4px;font-family:"Gowun Dodum",sans-serif}
+
+/* flights */
+.fl{display:flex;gap:12px;align-items:flex-start;padding:12px 0}
+.fl+.fl{border-top:2px dotted var(--line)}
+.fl:first-child{padding-top:0}.fl:last-child{padding-bottom:0}
+.chip{flex:0 0 auto;font-family:"Jua",sans-serif;font-size:13px;border-radius:10px;padding:4px 9px}
+.chip.go{background:var(--frost);color:var(--on-hero);border:1px solid var(--line)}
+.chip.back{background:var(--blush);color:var(--paprika)}
+.fl b{font-family:"Jua",sans-serif;font-weight:400;font-size:18px;display:block}
+.fl small{color:var(--soft);font-size:14px;display:block}
+
+/* day cards */
+.day{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.badge{
+  flex:0 0 56px;height:56px;border-radius:50%;display:grid;place-items:center;
+  color:#fff;font-size:19px;line-height:1;box-shadow:inset 0 0 0 3px rgba(255,255,255,.35)
+}
+.d1{background:var(--paprika)} .d2{background:var(--pine)} .d3{background:var(--gold)} .d4{background:var(--plum)}
+.day h2{font-family:"Jua",sans-serif;font-weight:400;font-size:24px;margin:0;line-height:1.2}
+.day small{color:var(--soft);font-size:14px}
+.tl{list-style:none;margin:0;padding:0 0 0 4px;position:relative}
+.tl::before{content:"";position:absolute;left:66px;top:8px;bottom:8px;border-left:2px dashed var(--line)}
+.tl li{display:grid;grid-template-columns:56px 22px 1fr;align-items:start;padding:8px 0}
+.t{font-family:"Jua",sans-serif;font-size:15px;color:var(--soft);padding-top:2px;font-variant-numeric:tabular-nums}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--paper);border:3px solid var(--line);margin:6px 0 0 2px;position:relative;z-index:1}
+.tl li.key .dot{border-color:var(--paprika);background:var(--paprika)}
+.tl li.key .t{color:var(--paprika)}
+.tl li.free .what{color:var(--soft)}
+.tl li.free .dot{border-style:dashed}
+.what{font-size:16px}
+.tl li.key .what{font-family:"Jua",sans-serif;font-size:17px}
+.note{display:block;font-size:14px;color:var(--soft)}
+.memo{
+  margin-top:14px;background:var(--blush);border-radius:14px;padding:12px 14px 12px 44px;font-size:14px;position:relative
+}
+.memo::before{content:"⚠︎";position:absolute;left:14px;top:10px;font-size:18px;color:var(--paprika)}
+
+/* stays */
+.stay{padding:14px 0;position:relative}
+.stay+.stay{border-top:2px dotted var(--line)}
+.stay:first-child{padding-top:0}.stay:last-child{padding-bottom:0}
+.stay-name{font-family:"Jua",sans-serif;font-size:19px;padding-right:70px}
+.stay-dates{font-size:14px;color:var(--soft)}
+.hanko{
+  position:absolute;right:2px;top:-4px;width:58px;height:58px;border-radius:50%;
+  border:3px solid var(--paprika);color:var(--paprika);display:grid;place-items:center;text-align:center;
+  font-size:13px;line-height:1.15;transform:rotate(-12deg);background:transparent;font-family:"Jua",sans-serif
+}
+.stay:first-child .hanko{top:-8px}
+.hanko.wait{border-style:dashed;border-color:var(--soft);color:var(--soft)}
+.stay ul{margin:8px 0 0;padding-left:18px;font-size:14px}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.btn{text-decoration:none;font-size:14px;padding:8px 14px;border-radius:999px;background:var(--frost);color:var(--on-hero);font-family:"Jua",sans-serif}
+.car{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.car div{background:var(--frost);border-radius:14px;padding:10px 12px;font-size:13px;color:var(--soft)}
+.car b{display:block;font-family:"Jua",sans-serif;font-weight:400;font-size:16px;color:var(--ink)}
+
+/* checklist */
+.prog{display:flex;align-items:center;gap:10px;margin:-2px 0 12px;font-size:14px;color:var(--soft)}
+.bar{flex:1;height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--pine);border-radius:999px;transition:width .3s}
+.check{list-style:none;margin:0;padding:0}
+.check li+li{border-top:1px dotted var(--line)}
+.check label{display:flex;gap:12px;align-items:flex-start;padding:11px 0;cursor:pointer}
+.check input{appearance:none;-webkit-appearance:none;flex:0 0 24px;width:24px;height:24px;border:2px solid var(--line);border-radius:50%;margin:0;background:var(--paper);display:grid;place-content:center}
+.check input:checked{background:var(--paprika);border-color:var(--paprika)}
+.check input:checked::after{content:"✓";color:#fff;font-size:14px;font-weight:700;line-height:1}
+.check input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.check input:checked + span{color:var(--soft);text-decoration:line-through}
+.check small{display:block;color:var(--soft);font-size:13px}
+
+footer{margin-top:34px;text-align:center;color:var(--soft);font-size:13px}
+footer .deco{font-size:20px;letter-spacing:4px;display:block;margin-bottom:4px}
+a:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:8px}
+@media (prefers-reduced-motion:no-preference){
+  .snow i{animation:twinkle 3.4s ease-in-out infinite}
+  .snow i:nth-child(2n){animation-delay:1.1s}.snow i:nth-child(3n){animation-delay:2.2s}
+  @keyframes twinkle{0%,100%{transform:translateY(0);opacity:.95}50%{transform:translateY(3px);opacity:.45}}
+  .folk .sway{transform-origin:40px 60px;animation:sway 4s ease-in-out infinite}
+  @keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="snow" aria-hidden="true">
+    <i style="left:12%;top:18%"></i><i style="left:30%;top:8%;width:4px;height:4px"></i><i style="left:58%;top:22%"></i>
+    <i style="left:76%;top:12%;width:4px;height:4px"></i><i style="left:88%;top:40%"></i><i style="left:44%;top:46%;width:4px;height:4px"></i>
+  </div>
+  <div class="hero-top">
+    <span class="kicker"><span class="hu">Boldog Karácsonyt</span> · 겨울 여행</span>
+    <svg class="folk" viewBox="0 0 80 80" aria-hidden="true">
+      <circle cx="40" cy="40" r="38" fill="#FFFBF4" opacity=".95"/>
+      <g class="sway">
+        <path d="M40 60c-6-8-17-10-21-20 7 0 15 5 21 12" fill="#4F7F5E"/>
+        <path d="M40 60c6-8 17-10 21-20-7 0-15 5-21 12" fill="#4F7F5E"/>
+        <path d="M40 54C26 45 23 35 29 30c4-3 9-1 11 4 2-5 7-7 11-4 6 5 3 15-11 24z" fill="#C8423B"/>
+        <circle cx="40" cy="40" r="4" fill="#FFFBF4"/>
+        <circle cx="40" cy="40" r="1.8" fill="#D9A13B"/>
+        <circle cx="40" cy="17" r="3" fill="#D9A13B"/><circle cx="29" cy="21" r="2.2" fill="#C8423B"/><circle cx="51" cy="21" r="2.2" fill="#C8423B"/>
+      </g>
+      <path d="M40 60v8" stroke="#4F7F5E" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <h1>부다페스트<br>크리스마스 여행</h1>
+  <p>낮엔 각자, 저녁엔 함께 걷는 7박 9일 ♡</p>
+  <div class="lace" aria-hidden="true"></div>
+</header>
+
+<div class="ticket" role="img" aria-label="인천에서 부다페스트, 12월 19일부터 27일까지, 부다페스트 7박">
+  <div class="route">
+    <div class="stn"><b>인천</b><small>ICN</small></div>
+    <div class="arrow"></div>
+    <div class="stn"><b class="hu">Budapest</b><small>부다페스트 · BUD</small></div>
+  </div>
+  <div class="tmeta">
+    <div><span>날짜</span><b>12.19 – 12.27</b></div>
+    <div><span>인원</span><b class="tbd">추가 예정</b></div>
+    <div><span>숙박</span><b>부다페스트 7박</b></div>
+  </div>
+</div>
+
+<nav class="days" aria-label="섹션 이동">
+  <div class="tabs">
+    <a href="#flights">✈ 항공</a>
+    <a href="#day1">19 토</a>
+    <a href="#day2">20 일</a>
+    <a href="#day3">21 월</a>
+    <a href="#day4">22 화</a>
+    <a href="#day5">23 수</a>
+    <a href="#day6">24 목</a>
+    <a href="#day7">25 금</a>
+    <a href="#day8">26 토</a>
+    <a href="#stays">🏨 숙소</a>
+    <a href="#todo">✔ 준비물</a>
+  </div>
+</nav>
+
+<section id="flights">
+  <div class="sec-head"><span class="ico" aria-hidden="true">✈️</span><h2>항공편</h2></div>
+  <div class="card">
+    <div class="fl">
+      <span class="chip go">가는 편</span>
+      <div><b>12/19 토 · 12:20 → 17:10</b><small>편명 <span class="tbd-tag">추가 예정</span> · 인천 제2터미널 → 부다페스트 2B터미널 · 약 12시간 50분</small><small>09:30까지 인천공항 제2터미널 도착 · 공항철도는 인천공항2터미널역에서 내리기</small></div>
+    </div>
+    <div class="fl">
+      <span class="chip back">오는 편</span>
+      <div><b>12/26 토 19:30 → 12/27 일 14:10</b><small>편명 <span class="tbd-tag">추가 예정</span> · 부다페스트 2B터미널 → 인천 제2터미널 · 약 10시간 40분</small><small>16:30까지 부다페스트 공항 도착 · 헝가리는 한국보다 8시간 느려요</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="day1">
+  <div class="day"><span class="badge d1 hu" aria-label="토요일">Szo</span><div><h2>도착하는 밤</h2><small>12월 19일 · 숙소에 짐 풀고 마켓 살짝</small></div></div>
+  <div class="card">
+    <ol class="tl">
+      <li class="key"><span class="t">17:10</span><span class="dot"></span><div><span class="what">부다페스트 공항 2B터미널 도착</span><span class="note">입국심사·짐 찾기 약 1시간 · 해는 16시쯤 져서 벌써 깜깜해요</span></div></li>
+      <li><span class="t">18:30</span><span class="dot"></span><div><span class="what">시내로 이동</span><span class="note">100E 공항버스로 데아크 광장까지 약 40분(공항버스 전용 표) · 짐 많으면 Bolt 택시</span></div></li>
+      <li><span class="t">19:30</span><span class="dot"></span><div><span class="what">숙소 체크인 <span class="tbd-tag">추가 예정</span></span><span class="note">숙소 정해지면 위치·이동 방법 채우기</span></div></li>
+      <li><span class="t">20:00</span><span class="dot"></span><div><span class="what">🎄 뵈뢰슈마르티 광장 마켓 첫 구경</span><span class="note">토요일은 22:00쯤까지 · 굴뚝빵(퀴르퇴슈칼라치)과 따뜻한 와인(포랄트 보르)</span></div></li>
+    </ol>
+    <div class="memo"><b>12시간 넘게 날아온 첫날이에요.</b> 마켓은 내일도 갈 거니까 오늘은 가볍게 보고 일찍 쉬기!</div>
+  </div>
+</section>
+
+<section id="day2">
+  <div class="day"><span class="badge d2 hu" aria-label="일요일">V</span><div><h2>크리스마스 마켓 밤</h2><small>12월 20일 · 대성당에서 광장까지 걸어서</small></div></div>
+  <div class="card">
+    <ol class="tl">
+      <li class="free"><span class="t">낮</span><span class="dot"></span><div><span class="what">각자 시간</span><span class="note">낮 일정은 추가 예정</span></div></li>
+      <li class="key"><span class="t">17:00</span><span class="dot"></span><div><span class="what">🎄 성 이슈트반 대성당 어드벤트 마켓</span><span class="note">11:00–22:00쯤 · 저녁마다 대성당 정면 조명 쇼 · 마켓 가운데 아이스링크</span></div></li>
+      <li><span class="t">18:30</span><span class="dot"></span><div><span class="what">✨ 바치 거리 따라 걷기</span><span class="note">대성당에서 뵈뢰슈마르티 광장까지 도보 10분 · 크리스마스 조명 길</span></div></li>
+      <li class="key"><span class="t">19:00</span><span class="dot"></span><div><span class="what">🍲 뵈뢰슈마르티 광장 마켓에서 저녁</span><span class="note">랑고시, 굴라시, 굴뚝빵 · 머그컵은 보증금 내고 반납하면 돌려받아요</span></div></li>
+      <li><span class="t">21:00</span><span class="dot"></span><div><span class="what">🌉 도나우 강변 야경 산책</span><span class="note">불 켜진 국회의사당과 세체니 체인브리지</span></div></li>
+    </ol>
+    <div class="memo"><b>마켓은 12/24엔 15:00쯤 일찍 닫아요.</b> 25·26일에도 20:00쯤 닫는다는 안내가 있어서, 넉넉히 보려면 그 전에!</div>
+  </div>
+</section>
+
+<section id="day3">
+  <div class="day"><span class="badge d3 hu" aria-label="월요일">H</span><div><h2>세체니 온천의 밤</h2><small>12월 21일 · 김 오르는 야외 온천</small></div></div>
+  <div class="card">
+    <ol class="tl">
+      <li class="free"><span class="t">낮</span><span class="dot"></span><div><span class="what">각자 시간</span><span class="note">낮 일정은 추가 예정</span></div></li>
+      <li><span class="t">17:30</span><span class="dot"></span><div><span class="what">🚇 M1 노란선 타고 온천으로</span><span class="note">데아크 광장에서 세체니 퓌르되(Széchenyi fürdő)역까지 약 15분</span></div></li>
+      <li class="key"><span class="t">18:00</span><span class="dot"></span><div><span class="what">♨ 세체니 온천</span><span class="note">보통 7:00–22:00 · 평일이 주말보다 저렴 · 온라인 예매하면 줄 안 서요 · 사물함/탈의실 선택</span></div></li>
+      <li><span class="t">20:30</span><span class="dot"></span><div><span class="what">🏰 버이더후녀드 성·영웅광장 야경</span><span class="note">온천 바로 옆 · 겨울엔 시민공원 야외 스케이트장(영업 여부 확인)</span></div></li>
+      <li><span class="t">21:00</span><span class="dot"></span><div><span class="what">저녁 <span class="tbd-tag">추가 예정</span></span></div></li>
+    </ol>
+    <div class="memo"><b>수영복·슬리퍼·수건 챙기기!</b> 나올 때 머리가 젖어 있으면 금방 추우니까 모자랑 목도리 필수.</div>
+  </div>
+</section>
+
+<section id="day4">
+  <div class="day"><span class="badge d4 hu" aria-label="화요일">K</span><div><h2>어부의 요새 야경</h2><small>12월 22일 · 부다 언덕에서 국회의사당 보기</small></div></div>
+  <div class="card">
+    <ol class="tl">
+      <li class="free"><span class="t">낮</span><span class="dot"></span><div><span class="what">각자 시간</span><span class="note">낮 일정은 추가 예정</span></div></li>
+      <li><span class="t">17:30</span><span class="dot"></span><div><span class="what">🚌 부다 성 지구로</span><span class="note">16번 버스(데아크 광장 출발) 또는 푸니쿨라(시클로) · 언덕이라 걷기보다 버스가 편해요</span></div></li>
+      <li class="key"><span class="t">19:00</span><span class="dot"></span><div><span class="what">🏰 어부의 요새</span><span class="note">매표소 닫는 19:00 이후엔 위층 테라스도 무료 · 강 건너 국회의사당 야경 명당</span></div></li>
+      <li><span class="t">19:30</span><span class="dot"></span><div><span class="what">⛪ 마차시 성당과 부다 성 산책</span><span class="note">바로 옆 · 부다 성 어드벤트 마켓은 올해 열리는지 확인</span></div></li>
+      <li><span class="t">20:30</span><span class="dot"></span><div><span class="what">저녁 <span class="tbd-tag">추가 예정</span></span></div></li>
+      <li><span class="t">21:30</span><span class="dot"></span><div><span class="what">🌉 체인브리지 걸어서 건너기</span><span class="note">부다에서 페스트로 · 다리 위 야경</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="day5">
+  <div class="day"><span class="badge d1 hu" aria-label="수요일">Sze</span><div><h2>쇼핑하고 강 위로</h2><small>12월 23일 · 이브 전날 마지막 쇼핑</small></div></div>
+  <div class="card">
+    <ol class="tl">
+      <li class="free"><span class="t">낮</span><span class="dot"></span><div><span class="what">각자 시간</span><span class="note">낮 일정은 추가 예정</span></div></li>
+      <li class="key"><span class="t">17:00</span><span class="dot"></span><div><span class="what">🛍 기념품 쇼핑</span><span class="note">파프리카 가루, 토카이 와인, 자수 소품 · 24일 오후부터 26일까지 상점 대부분 쉬어요</span></div></li>
+      <li><span class="t">19:00</span><span class="dot"></span><div><span class="what">🚢 도나우강 야경 크루즈 (선택)</span><span class="note">할지 말지 추가 예정 · 하면 미리 예약</span></div></li>
+      <li><span class="t">20:30</span><span class="dot"></span><div><span class="what">저녁 <span class="tbd-tag">추가 예정</span></span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="day6">
+  <div class="day"><span class="badge d2 hu" aria-label="목요일">Cs</span><div><h2>크리스마스 이브</h2><small>12월 24일 · 도시가 일찍 문 닫는 날</small></div></div>
+  <div class="card">
+    <ol class="tl">
+      <li class="free"><span class="t">낮</span><span class="dot"></span><div><span class="what">각자 시간</span><span class="note">낮 일정은 추가 예정</span></div></li>
+      <li class="key"><span class="t">15:00</span><span class="dot"></span><div><span class="what">🎄 마켓·상점 일찍 닫음</span><span class="note">마켓 15:00쯤, 상점은 14:00쯤 마감</span></div></li>
+      <li class="key"><span class="t">저녁</span><span class="dot"></span><div><span class="what">🍽 크리스마스 이브 저녁 <span class="tbd-tag">추가 예정</span></span><span class="note">문 여는 식당이 적어서 꼭 예약 · 숙소에서 조용히 보내도 좋아요</span></div></li>
+    </ol>
+    <div class="memo"><b>이브엔 대중교통이 일찍 끊겨요.</b> 작년엔 지상 노선이 15:00–16:00, 지하철이 18:00에 끝났고 그 뒤엔 야간버스만 다녔어요. 저녁 장소는 숙소에서 걸어갈 수 있는 곳으로! 세체니 온천도 이날은 오후 일찍 닫아요.</div>
+  </div>
+</section>
+
+<section id="day7">
+  <div class="day"><span class="badge d3 hu" aria-label="금요일">P</span><div><h2>메리 크리스마스</h2><small>12월 25일 · 느긋한 성탄절 밤</small></div></div>
+  <div class="card">
+    <ol class="tl">
+      <li class="free"><span class="t">낮</span><span class="dot"></span><div><span class="what">각자 시간</span><span class="note">낮 일정은 추가 예정</span></div></li>
+      <li class="key"><span class="t">17:00</span><span class="dot"></span><div><span class="what">🎄 크리스마스 마켓 한 번 더</span><span class="note">25·26일은 20:00쯤까지 · 못 먹어 본 것 먹기</span></div></li>
+      <li><span class="t">19:00</span><span class="dot"></span><div><span class="what">저녁 <span class="tbd-tag">추가 예정</span></span></div></li>
+    </ol>
+    <div class="memo"><b>25·26일은 헝가리 공휴일이에요.</b> 상점·식당이 많이 쉬고 대중교통은 휴일 시간표. 식당은 영업 여부 미리 확인하기.</div>
+  </div>
+</section>
+
+<section id="day8">
+  <div class="day"><span class="badge d4 hu" aria-label="토요일">Szo</span><div><h2>집으로 가는 날</h2><small>12월 26일 · 다음 날 오후 인천 도착</small></div></div>
+  <div class="card">
+    <ol class="tl">
+      <li><span class="t">오전</span><span class="dot"></span><div><span class="what">숙소 체크아웃 <span class="tbd-tag">시간 추가 예정</span></span><span class="note">짐은 숙소에 맡기기</span></div></li>
+      <li class="free"><span class="t">낮</span><span class="dot"></span><div><span class="what">마지막 산책</span><span class="note">추가 예정 · 공휴일이라 문 연 곳 확인</span></div></li>
+      <li class="key"><span class="t">15:30</span><span class="dot"></span><div><span class="what">공항으로 출발</span><span class="note">100E 공항버스 또는 Bolt 택시 약 40분 · 휴일 시간표 확인</span></div></li>
+      <li class="key"><span class="t">16:30</span><span class="dot"></span><div><span class="what">🧾 공항 2B 도착 · 택스 리펀드</span><span class="note">면세 서류 받은 물건이 있으면 짐 부치기 전에 처리</span></div></li>
+      <li><span class="t">17:00</span><span class="dot"></span><div><span class="what">체크인 · 짐 부치기</span></div></li>
+      <li><span class="t">18:00</span><span class="dot"></span><div><span class="what">보안검색 · 출국심사 · 면세점</span><span class="note">탑승 시각은 보딩패스 확인</span></div></li>
+      <li class="key"><span class="t">19:30</span><span class="dot"></span><div><span class="what">✈ 인천으로 출발</span><span class="note">12/27 일 14:10 인천 제2터미널 도착</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="stays">
+  <div class="sec-head"><span class="ico" aria-hidden="true">🏨</span><h2>숙소와 교통</h2></div>
+  <div class="card">
+    <div class="stay">
+      <span class="hanko wait" aria-label="예약 예정">미정</span>
+      <div class="stay-name">숙소 <span class="tbd-tag">추가 예정</span></div>
+      <div class="stay-dates">12/19 토 – 12/26 토 · 7박</div>
+      <ul>
+        <li class="tbd">방 종류 · 조식 여부 추가 예정</li>
+        <li class="tbd">체크인 ○○:○○ 이후 · 체크아웃 ○○:○○ 이전</li>
+        <li class="tbd">예약처 · 결제·환불 조건 추가 예정</li>
+        <li>이브(24일) 대중교통이 일찍 끊기니 시내 중심(5·6·7구) 쪽이면 편해요</li>
+      </ul>
+    </div>
+    <div class="stay">
+      <span class="hanko wait" aria-label="정하는 중">미정</span>
+      <div class="stay-name">공항 ↔ 시내 · 시내 교통</div>
+      <div class="car">
+        <div>도착<b>12/19 토 17:10</b>공항 2B → 시내</div>
+        <div>출발<b>12/26 토 16:30</b>시내 → 공항 2B</div>
+      </div>
+      <ul>
+        <li><b>100E 공항버스</b> 공항 ↔ 데아크 광장 약 40분 · 일반 교통권으론 못 타고 전용 표 필요</li>
+        <li><b>택시</b> Bolt 앱으로 부르면 요금이 미리 보여요</li>
+        <li><b>시내 교통권</b> 추가 예정 · BudapestGO 앱에서 24시간·72시간권 등 구매</li>
+        <li>지하철 M1(노란선)은 세체니 온천, 16번 버스는 어부의 요새</li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Budapest+Ferenc+Liszt+International+Airport+Terminal+2B" target="_blank" rel="noopener">📍 공항 지도</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=De%C3%A1k+Ferenc+t%C3%A9r+Budapest" target="_blank" rel="noopener">📍 데아크 광장</a>
+      </div>
+    </div>
+    <div class="stay">
+      <span class="hanko" aria-label="꼭 가기">꼭<br>가기</span>
+      <div class="stay-name">가고 싶은 곳 지도</div>
+      <ul>
+        <li>세체니 온천 · 12/21 월</li>
+        <li>어부의 요새 · 12/22 화</li>
+        <li>크리스마스 마켓 · 12/19, 20, 25</li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Sz%C3%A9chenyi+Thermal+Bath+Budapest" target="_blank" rel="noopener">♨ 세체니 온천</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Fisherman%27s+Bastion+Budapest" target="_blank" rel="noopener">🏰 어부의 요새</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=V%C3%B6r%C3%B6smarty+t%C3%A9r+Budapest" target="_blank" rel="noopener">🎄 뵈뢰슈마르티 광장</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=St.+Stephen%27s+Basilica+Budapest" target="_blank" rel="noopener">🎄 성 이슈트반 대성당</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="todo">
+  <div class="sec-head"><span class="ico" aria-hidden="true">🎒</span><h2>떠나기 전에</h2></div>
+  <div class="prog"><div class="bar"><i id="bar"></i></div><span id="progress"></span></div>
+  <div class="card">
+    <ul class="check" id="checklist">
+      <li><label><input type="checkbox" data-k="passport"><span>여권 유효기간 확인<small>헝가리(솅겐)는 출국일 기준 3개월 이상 남아 있어야 해요</small></span></label></li>
+      <li><label><input type="checkbox" data-k="flight"><span>항공편명 확인해서 앱에 채우기<small>예약번호는 공개 앱에 적지 않기</small></span></label></li>
+      <li><label><input type="checkbox" data-k="stay"><span>숙소 예약 (12/19 – 12/26, 7박)<small>시내 중심, 지하철역 가까운 곳</small></span></label></li>
+      <li><label><input type="checkbox" data-k="bath"><span>세체니 온천 온라인 예매 (12/21 월 저녁)<small>공식 사이트에서 · 비슷한 이름의 대행 사이트 주의</small></span></label></li>
+      <li><label><input type="checkbox" data-k="swim"><span>수영복 · 슬리퍼 · 수건<small>온천용 · 수건은 현장 대여도 가능</small></span></label></li>
+      <li><label><input type="checkbox" data-k="eve"><span>크리스마스 이브 저녁 식당 예약 (12/24)<small>문 여는 곳이 적어서 미리 · 숙소에서 걸어갈 거리로</small></span></label></li>
+      <li><label><input type="checkbox" data-k="app"><span>BudapestGO · Bolt 앱 설치<small>교통권 구매·길찾기 · 택시</small></span></label></li>
+      <li><label><input type="checkbox" data-k="money"><span>포린트(HUF) 조금 · 트래블카드<small>마켓 노점은 현금이 편할 때가 있어요</small></span></label></li>
+      <li><label><input type="checkbox" data-k="etias"><span>ETIAS(유럽 여행허가) 시행 여부 확인<small>아직 시행 전(2027년 예정) · 출발 전에 공식 사이트에서 한 번 더</small></span></label></li>
+      <li><label><input type="checkbox" data-k="warm"><span>두꺼운 패딩 · 장갑 · 목도리 · 모자<small>12월 저녁은 0도 안팎 · 저녁에만 다니니 더 따뜻하게</small></span></label></li>
+    </ul>
+  </div>
+</section>
+
+<footer><span class="deco" aria-hidden="true">🎄❄️♨️❄️🎄</span>영업시간과 휴일 일정은 출발 전에 한 번 더 확인하기</footer>
+</div>
+
+<script>
+(function(){
+  var KEY='budapest-trip-checks';
+  var state={};
+  try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){state={};}
+  var boxes=document.querySelectorAll('#checklist input');
+  var prog=document.getElementById('progress'), bar=document.getElementById('bar');
+  function update(){
+    var done=0;boxes.forEach(function(b){if(b.checked)done++;});
+    prog.textContent=done===boxes.length?'준비 완료!':done+' / '+boxes.length;
+    bar.style.width=(done/boxes.length*100)+'%';
+  }
+  boxes.forEach(function(b){
+    b.checked=!!state[b.dataset.k];
+    b.addEventListener('change',function(){
+      state[b.dataset.k]=b.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}
+      update();
+    });
+  });
+  update();
+  var links=document.querySelectorAll('.tabs a');
+  var secs=[].map.call(links,function(a){return document.querySelector(a.getAttribute('href'));});
+  function mark(){
+    var y=window.scrollY+130,idx=-1;
+    secs.forEach(function(s,i){if(s&&s.offsetTop<=y)idx=i;});
+    links.forEach(function(a,i){a.classList.toggle('on',i===idx);});
+    var on=links[idx];
+    if(on){var p=on.parentNode;p.scrollTo({left:on.offsetLeft-p.clientWidth/2+on.clientWidth/2,behavior:'smooth'});}
+  }
+  var ticking=false;
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(function(){mark();ticking=false;});}},{passive:true});
+  mark();
+})();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); });
+}
+</script>
+</body>
+</html>
