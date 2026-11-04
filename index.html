@@ -96,6 +96,32 @@ nav.days{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:v
 .tabs a{flex:0 0 auto;text-decoration:none;font-size:14px;padding:7px 14px;border-radius:999px;background:var(--paper);border:2px solid var(--line);font-family:"Jua",sans-serif}
 .tabs a.on{background:var(--paprika);border-color:var(--paprika);color:#fff}
 
+
+/* ===== 눈 쌓인 카드·날짜 버튼
+   ::before = 테두리 안쪽에 쌓인 눈(테두리 모양 그대로 잘림), ::after = 윗면 평평한 곳에만 살짝 솟은 눈 ===== */
+.card,.tabs a{position:relative}
+.card::before{content:"";position:absolute;top:-2px;left:-2px;right:-2px;height:18px;border-radius:20px 20px 0 0;
+  pointer-events:none;z-index:1;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20420%2018%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23fff%22%2F%3E%3Cstop%20offset%3D%22.6%22%20stop-color%3D%22%23fff%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23E4EAF1%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M0%200H420V9C405%2010%20392%208%20380%209C376%209%20375%2015%20371%2015C367%2015%20367%2010%20362%2010C335%2010%20318%207%20300%208C275%209%20255%2011%20232%209C228%209%20228%2013%20224%2013C220%2013%20220%209%20215%209C190%208%20172%2011%20150%209C125%207%20104%2010%2082%209C78%209%2077%2016%2073%2016C69%2016%2069%2010%2064%2010C40%2010%2022%207%200%209Z%22%20fill%3D%22url%28%23g%29%22%2F%3E%3C%2Fsvg%3E") center top/420px 18px repeat-x;
+  filter:drop-shadow(0 1px 1px rgba(110,90,70,.2))}
+.card::after{content:"";position:absolute;top:-8px;left:20px;right:20px;height:7px;pointer-events:none;z-index:1;
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20420%208%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23fff%22%2F%3E%3Cstop%20offset%3D%22.6%22%20stop-color%3D%22%23fff%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23E4EAF1%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M0%208C10%208%2014%204%2026%204C38%204%2040%207%2052%206C66%205%2070%201%2086%202C100%203%20104%207%20118%206C130%205%20136%203%20150%203C166%203%20170%207%20186%206C200%205%20208%202%20224%202C240%202%20244%206%20258%206C272%206%20276%203%20292%203C308%203%20312%207%20326%206C340%205%20346%202%20362%202C378%202%20382%206%20396%206C408%206%20412%208%20420%208Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E") center bottom/420px 7px repeat-x;
+  filter:drop-shadow(0 -1px .6px rgba(110,90,70,.22));-webkit-mask-image:linear-gradient(90deg,transparent,#000 9px,#000 calc(100% - 9px),transparent);mask-image:linear-gradient(90deg,transparent,#000 9px,#000 calc(100% - 9px),transparent)}
+.hanko{z-index:2}
+.tabs{padding-top:9px}
+nav.days{padding-top:4px}
+.tabs a::before{content:"";position:absolute;inset:-2px;border-radius:999px;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20140%2014%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23fff%22%2F%3E%3Cstop%20offset%3D%22.6%22%20stop-color%3D%22%23fff%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23E4EAF1%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M0%200H140V7C128%208%20118%206%20106%207C102%207%20102%2011%2099%2011C96%2011%2096%208%2092%208C76%208%2062%206%2048%207C36%208%2026%209%2016%208C13%208%2013%2011%2010%2011C7%2011%207%208%204%208L0%208Z%22%20fill%3D%22url%28%23g%29%22%2F%3E%3C%2Fsvg%3E") 0 0/140px 14px repeat-x;filter:drop-shadow(0 1px .8px rgba(110,90,70,.2))}
+.tabs a::after{content:"";position:absolute;top:-6px;left:16px;right:16px;height:5px;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2060%206%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23fff%22%2F%3E%3Cstop%20offset%3D%22.6%22%20stop-color%3D%22%23fff%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23E4EAF1%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M0%206C6%206%208%202%2015%202S24%205%2030%205%2038%201%2045%202%2054%206%2060%206Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E") 0 100%/60px 5px repeat-x;
+  filter:drop-shadow(0 -1px .5px rgba(110,90,70,.25));-webkit-mask-image:linear-gradient(90deg,transparent,#000 9px,#000 calc(100% - 9px),transparent);mask-image:linear-gradient(90deg,transparent,#000 9px,#000 calc(100% - 9px),transparent)}
+.tabs a:nth-child(3n+2)::before{background-position:-46px 0} .tabs a:nth-child(3n+2)::after{background-position:-20px 100%}
+.tabs a:nth-child(3n)::before{background-position:-92px 0} .tabs a:nth-child(3n)::after{background-position:-40px 100%}
+/* 빨간 버튼이 옮겨갈 때: 버튼이 살짝 흔들리고 눈이 털려 떨어짐 */
+.flake{position:absolute;border-radius:50%;background:#fff;box-shadow:0 0 0 1px rgba(140,115,90,.2);pointer-events:none;z-index:6;
+  animation:flakeDrop 1.2s cubic-bezier(.4,0,.8,.6) forwards}
+@keyframes flakeDrop{0%{transform:translate(0,0);opacity:1}70%{opacity:.95}100%{transform:translate(var(--dx),var(--dy));opacity:0}}
+.tabs a.shake{animation:wobble .5s ease-out}
+@keyframes wobble{20%{transform:rotate(-4deg)}45%{transform:rotate(3deg)}70%{transform:rotate(-1.5deg)}100%{transform:none}}
 section{margin-top:30px}
 .sec-head{display:flex;align-items:center;gap:10px;margin:0 0 12px}
 .sec-head h2{font-family:"Jua",sans-serif;font-weight:400;font-size:24px;margin:0;line-height:1.2}
@@ -478,6 +504,29 @@ a:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:8
     links.forEach(function(a,i){a.classList.toggle('on',i===idx);});
     var on=links[idx];
     if(on){var p=on.parentNode;p.scrollTo({left:on.offsetLeft-p.clientWidth/2+on.clientWidth/2,behavior:'smooth'});}
+    if(idx!==last){if(last!==null&&on)shakeSnow(on);last=idx;}
+  }
+  // 빨간 버튼이 옮겨갈 때마다 그 버튼에서 눈이 털려 떨어지기 (동작 줄이기 설정이면 생략)
+  var last=null,nav=document.querySelector('nav.days');
+  var calm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function shakeSnow(a){
+    if(calm||nav.querySelectorAll('.flake').length>28)return;
+    setTimeout(function(){
+      a.classList.remove('shake');void a.offsetWidth;a.classList.add('shake');
+      var nr=nav.getBoundingClientRect(),r=a.getBoundingClientRect();
+      for(var i=0;i<8;i++){
+        var f=document.createElement('i'),sz=3+Math.random()*4;
+        f.className='flake';f.style.width=f.style.height=sz+'px';
+        f.style.left=(r.left-nr.left+10+Math.random()*(r.width-20))+'px';
+        f.style.top=(r.top-nr.top-3+Math.random()*8)+'px';
+        f.style.setProperty('--dx',(Math.random()*26-13)+'px');
+        f.style.setProperty('--dy',(40+Math.random()*40)+'px');
+        f.style.animationDuration=(0.9+Math.random()*0.8)+'s';
+        f.style.animationDelay=(Math.random()*0.18)+'s';
+        f.addEventListener('animationend',function(){this.remove();});
+        nav.appendChild(f);
+      }
+    },320);
   }
   var ticking=false;
   window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(function(){mark();ticking=false;});}},{passive:true});
